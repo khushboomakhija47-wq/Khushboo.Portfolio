@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushboo Makhija — Founder & Growth Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand: #F3EEE3;
+    --surface: #FBF8F1;
+    --ink: #1F2B1D;
+    --muted: #716A5C;
+    --gold: #C2872B;
+    --forest: #3C5B3E;
+    --clay: #B0532B;
+    --line: rgba(31,43,29,0.12);
+    --maxw: 920px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Archivo', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  .mono{
+    font-family:'Space Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--forest);
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+
+  header.hero::before{
+    content:"";
+    position:absolute;
+    top:-120px; right:-120px;
+    width:340px; height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(194,135,43,0.18), transparent 70%);
+    pointer-events:none;
+  }
+
+  .hero .eyebrow{ margin-bottom:18px; }
+
+  h1.name{
+    font-size:clamp(42px, 7vw, 76px);
+    line-height:1.02;
+    font-style:normal;
+    margin-bottom:18px;
+  }
+
+  .tagline{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(19px, 2.4vw, 24px);
+    color:var(--forest);
+    max-width:560px;
+    margin-bottom:22px;
+  }
+
+  .hero-desc{
+    max-width:560px;
+    color:#3B362C;
+    font-size:16px;
+    margin-bottom:30px;
+  }
+
+  .focus-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 18px;
+    margin-bottom:34px;
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .focus-tags span:not(:last-child)::after{
+    content:"·";
+    margin-left:18px;
+    color:var(--gold);
+  }
+
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 20px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    border:1px solid var(--ink);
+    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .pill.fill{ background:var(--ink); color:var(--surface); }
+  .pill.fill:hover{ background:var(--forest); border-color:var(--forest); transform:translateY(-1px); }
+  .pill.line:hover{ background:var(--ink); color:var(--surface); transform:translateY(-1px); }
+
+  /* ---------- SECTION shared ---------- */
+  section{ padding:72px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .section-head{ margin-bottom:44px; max-width:620px; }
+  .section-head .eyebrow{ margin-bottom:12px; }
+  .section-head h2{ font-size:clamp(28px, 4vw, 38px); }
+
+  /* ---------- ABOUT ---------- */
+  .about-body p{
+    font-size:17px;
+    max-width:680px;
+    margin-bottom:18px;
+    color:#2E2A22;
+  }
+  .about-body p:last-child{ margin-bottom:0; }
+
+  /* ---------- BUILD LOG ---------- */
+  .log{
+    position:relative;
+    padding-left:34px;
+  }
+  .log::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:2px;
+    background:linear-gradient(to bottom, var(--gold), var(--forest) 55%, var(--line) 100%);
+  }
+
+  .entry{
+    position:relative;
+    padding-bottom:46px;
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .entry.in-view{ opacity:1; transform:translateY(0); }
+  .entry:last-child{ padding-bottom:0; }
+
+  .entry::before{
+    content:"";
+    position:absolute;
+    left:-34px; top:6px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--surface);
+    border:2px solid var(--gold);
+    box-shadow:0 0 0 5px var(--sand);
+  }
+  .entry.past::before{ border-color:var(--muted); }
+  .entry.current::before{ background:var(--gold); }
+
+  .entry-meta{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:10px 14px;
+    margin-bottom:8px;
+  }
+
+  .entry-meta .when{
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  .entry h3{
+    font-size:21px;
+    display:inline-block;
+  }
+
+  .entry .role{
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--forest);
+    margin-top:2px;
+    margin-bottom:10px;
+  }
+
+  .entry p.desc{
+    font-size:15.5px;
+    color:#3B362C;
+    max-width:600px;
+  }
+
+  .outcome{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:12px;
+    padding:5px 12px;
+    border-radius:999px;
+    background:rgba(176,83,43,0.1);
+    color:var(--clay);
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.02em;
+  }
+  .outcome::before{ content:"★"; font-size:10px; }
+
+  /* ---------- LEADERSHIP ---------- */
+  .lead-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+  }
+  .lead-card h3{ font-size:19px; margin-bottom:6px; }
+  .lead-card .when{ font-family:'Space Mono', monospace; font-size:12px; color:var(--muted); display:block; margin-bottom:10px; }
+  .lead-card p{ font-size:15px; color:#3B362C; }
+  .lead-card ul{ list-style:none; margin-top:14px; }
+  .lead-card li{ font-size:14.5px; padding:8px 0; border-top:1px solid var(--line); }
+  .lead-card li:first-child{ border-top:none; }
+  .lead-card li b{ font-weight:600; }
+
+  /* ---------- SKILLS ---------- */
+  .skill-clusters{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  .cluster{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:24px;
+  }
+  .cluster .eyebrow{ margin-bottom:14px; color:var(--gold); }
+  .cluster ul{ list-style:none; }
+  .cluster li{
+    font-size:14.5px;
+    padding:7px 0;
+    border-top:1px solid var(--line);
+  }
+  .cluster li:first-child{ border-top:none; }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-item{ display:flex; gap:24px; margin-bottom:22px; }
+  .edu-item:last-child{ margin-bottom:0; }
+  .edu-when{
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    flex:0 0 150px;
+    padding-top:3px;
+  }
+  .edu-item h3{ font-size:18px; margin-bottom:4px; }
+  .edu-item p{ font-size:14.5px; color:var(--muted); }
+  .cert{
+    margin-top:28px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Mono', monospace;
+    font-size:12.5px;
+    padding:8px 16px;
+    border:1px dashed var(--forest);
+    border-radius:8px;
+    color:var(--forest);
+  }
+
+  /* ---------- BEYOND ---------- */
+  .beyond p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(19px, 2.6vw, 26px);
+    line-height:1.5;
+    max-width:680px;
+    color:#2E2A22;
+  }
+  .beyond .interest-tags{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .interest-tags span{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    padding:7px 14px;
+    border-radius:999px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    color:var(--muted);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:64px 0 56px; }
+  footer .eyebrow{ margin-bottom:16px; }
+  footer h2{ font-size:clamp(30px, 5vw, 44px); margin-bottom:26px; max-width:480px; }
+  .foot-bottom{
+    margin-top:48px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 720px){
+    .lead-grid{ grid-template-columns:1fr; }
+    .skill-clusters{ grid-template-columns:1fr; }
+    .edu-item{ flex-direction:column; gap:4px; }
+    .edu-when{ flex:none; }
+    header.hero{ padding:64px 0 52px; }
+    section{ padding:52px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .entry{ transition:none; opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Indore, Madhya Pradesh, India</p>
+    <h1 class="name">Khushboo<br>Makhija</h1>
+    <p class="tagline">Building health-first ventures, one experiment at a time.</p>
+    <p class="hero-desc">A 20-year-old entrepreneur working across wellbeing, sustainability and founder-led growth — currently driving growth &amp; marketing for a wellbeing-first brand in London, while building her own clean-label food venture from Indore.</p>
+    <div class="focus-tags">
+      <span>Health &amp; Wellness</span>
+      <span>Sustainability</span>
+      <span>Founder-Led Growth</span>
+      <span>Strategic PR</span>
+    </div>
+    <div class="cta-row">
+      <a class="pill fill" href="mailto:khushboomakhija47@gmail.com">Email me</a>
+      <a class="pill line" href="https://www.linkedin.com/in/khushboo-makhija-5a85a3288/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">About</p>
+      <h2>Business, as a vehicle for change</h2>
+    </div>
+    <div class="about-body">
+      <p>I believe business is one of the most powerful tools we have for creating real change — and I've spent the last three years proving that to myself, one venture at a time.</p>
+      <p>My focus sits at the intersection of health &amp; wellness and sustainability — two industries I genuinely care about and think are essential to how we live and build going forward. I'm energised by the early, hands-on part of building something: sourcing the first batch, closing the first deal, finding the first hundred customers.</p>
+      <p>Across founder roles, founder's-office work, and on-ground business development, I've learned what it actually takes to turn an idea into something real — and I'm looking for my next challenge, with people who want to build the same way.</p>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The Build Log</p>
+      <h2>Ventures &amp; experience</h2>
+    </div>
+
+    <div class="log">
+
+      <div class="entry current">
+        <div class="entry-meta">
+          <h3>Avara Wellbeing</h3>
+          <span class="when mono">Remote, London · Apr 2026 – Present</span>
+        </div>
+        <p class="role">Founder's Office — Growth &amp; Marketing</p>
+        <p class="desc">Shaping growth strategy for a wellbeing-first brand — turning audience insight into positioning, deepening community engagement, and steering content direction so more people can access trusted holistic care.</p>
+      </div>
+
+      <div class="entry current">
+        <div class="entry-meta">
+          <h3>Studio Osmo</h3>
+          <span class="when mono">Remote, London · Mar 2026 – Present</span>
+        </div>
+        <p class="role">Virtual Associate</p>
+        <p class="desc">Supporting sustainable-materials adoption in fashion through supplier research, sourcing coordination, and industry analysis — helping brands build more transparent, circular supply chains.</p>
+      </div>
+
+      <div class="entry past">
+        <div class="entry-meta">
+          <h3>Namah-Aste</h3>
+          <span class="when mono">Indore · Nov 2025 – Mar 2026</span>
+        </div>
+        <p class="role">Founder</p>
+        <p class="desc">Built a clean-label hummus brand for conscious everyday eating, running early consumer testing and iterating the product through direct feedback loops.</p>
+      </div>
+
+      <div class="entry past">
+        <div class="entry-meta">
+          <h3>29Acacia</h3>
+          <span class="when mono">Indore · Jan 2025 – Jan 2026</span>
+        </div>
+        <p class="role">Founder's Associate to the COO</p>
+        <p class="desc">Worked directly with a Forbes 30 Under 30 founder and senior leadership on operations, supply chain, logistics and cross-border (UK–India) coordination. Introduced an ERP system (Frappe) for internal tracking and supported senior hiring and grant applications.</p>
+        <span class="outcome">ERP rollout · UK–India ops</span>
+      </div>
+
+      <div class="entry past">
+        <div class="entry-meta">
+          <h3>Raheja Solar Food Processing — Barefruit</h3>
+          <span class="when mono">Indore · Mar 2024 – Jan 2025</span>
+        </div>
+        <p class="role">Business Development Executive</p>
+        <p class="desc">Took over stalled sales and revived them — closing roughly ₹30L in one-time deals and building ~₹10L in monthly recurring revenue. Onboarded quick-commerce and retail partners (Instamart, Zepto, First Cry, Tripole) and ran consumer pilots that validated Barefruit's product-market fit.</p>
+        <span class="outcome">Featured on Shark Tank India, Season 4</span>
+      </div>
+
+      <div class="entry past">
+        <div class="entry-meta">
+          <h3>Aromatees</h3>
+          <span class="when mono">Indore · Nov 2023 – Nov 2024</span>
+        </div>
+        <p class="role">Co-Founder</p>
+        <p class="desc">Bootstrapped a comfort-first clothing line with ₹30K in personal capital, launching a first batch of 100 units. Ran early market pilots, then made the call to shut down post-pilot once the unit economics didn't support scale.</p>
+      </div>
+
+      <div class="entry past">
+        <div class="entry-meta">
+          <h3>EP Ventures</h3>
+          <span class="when mono">Indore · Apr 2023 – Feb 2024</span>
+        </div>
+        <p class="role">Finance &amp; Marketing Analyst</p>
+        <p class="desc">Built loan files and financial models for founders and MSMEs across 15+ business plans, while supporting client acquisition and brand communication on the marketing side.</p>
+      </div>
+
+      <div class="entry past">
+        <div class="entry-meta">
+          <h3>Rudrastox</h3>
+          <span class="when mono">Indore · Mar 2022 – May 2022</span>
+        </div>
+        <p class="role">Business Development Executive</p>
+        <p class="desc">Opened 12 demat accounts and mobilised ~₹1.5L in funds as the team's third-highest performer — an early lesson in cold outreach and closing.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Leadership &amp; Community</p>
+      <h2>Off the balance sheet</h2>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-card">
+        <h3>Impact Toastmasters Club</h3>
+        <span class="when">Indore · Jan 2025 – Dec 2025</span>
+        <p>A year of taking on more responsibility inside the club — from finding my voice as a member to running its public-facing presence.</p>
+        <ul>
+          <li><b>VP Public Relations</b> · Jul – Dec 2025 — owned the club's PR, branding and outreach end-to-end.</li>
+          <li><b>Sergeant-at-Arms &amp; Associate VPE/VPPR</b> · Apr – Jul 2025</li>
+          <li><b>Member</b> · Jan – Sep 2025 — built confidence, public speaking and networking skills.</li>
+        </ul>
+      </div>
+      <div class="lead-card">
+        <h3>Leadership et Humanité LLC</h3>
+        <span class="when">Mentee · May – Nov 2025</span>
+        <p>Mentorship focused on business thinking, decision-making and leadership fundamentals — a meaningful influence on how I lead and think about growth today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Skills</p>
+      <h2>How I add value</h2>
+    </div>
+    <div class="skill-clusters">
+      <div class="cluster">
+        <p class="eyebrow">Build &amp; Operate</p>
+        <ul>
+          <li>Founder-led execution &amp; ownership</li>
+          <li>Operations &amp; supply chain coordination</li>
+          <li>Process building</li>
+        </ul>
+      </div>
+      <div class="cluster">
+        <p class="eyebrow">Grow &amp; Sell</p>
+        <ul>
+          <li>Sales &amp; business development</li>
+          <li>Partnerships &amp; channel onboarding</li>
+          <li>Online lead generation</li>
+        </ul>
+      </div>
+      <div class="cluster">
+        <p class="eyebrow">Communicate</p>
+        <ul>
+          <li>Strategic PR planning</li>
+          <li>Public relations</li>
+          <li>Market research &amp; stakeholder communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Education</p>
+      <h2>Learning, formally and on the ground</h2>
+    </div>
+    <div class="edu-item">
+      <span class="edu-when mono">Aug 2023 – Jul 2026</span>
+      <div>
+        <h3>Bachelor of Business Administration</h3>
+        <p>Devi Ahilya Vishwavidyalaya (DAVV), Indore · Business Administration &amp; Management — in progress</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-when mono">— 2023</span>
+      <div>
+        <h3>Higher Secondary — Commerce &amp; Mathematics</h3>
+        <p>Brilliant Higher Secondary School, Indore</p>
+      </div>
+    </div>
+    <span class="cert mono">Certification — Tech Master</span>
+  </div>
+</section>
+
+<section class="beyond" id="beyond">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Beyond the Desk</p>
+      <h2>What keeps me grounded</h2>
+    </div>
+    <p>I love mindful travel, especially to spiritual and nature-rich places, and I stay active through yoga, dance and sport. Some of my favourite hours are spent in spaces where music, movement and spirituality come together — bhajan clubbing included.</p>
+    <div class="interest-tags">
+      <span>Yoga</span>
+      <span>Dance</span>
+      <span>Mindful Travel</span>
+      <span>Bhajan Clubbing</span>
+      <span>Sports</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">Get in touch</p>
+    <h2>Building something in health, wellness, or sustainability? Let's talk.</h2>
+    <div class="cta-row">
+      <a class="pill fill" href="mailto:khushboomakhija47@gmail.com">khushboomakhija47@gmail.com</a>
+      <a class="pill line" href="https://www.linkedin.com/in/khushboo-makhija-5a85a3288/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Khushboo Makhija — Indore, Madhya Pradesh, India</span>
+      <span>Built 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const entries = document.querySelectorAll('.entry');
+  if ('IntersectionObserver' in window){
+    const obs = new IntersectionObserver((items)=>{
+      items.forEach(item=>{
+        if(item.isIntersecting){
+          item.target.classList.add('in-view');
+          obs.unobserve(item.target);
+        }
+      });
+    }, { threshold:0.15 });
+    entries.forEach(el=>obs.observe(el));
+  } else {
+    entries.forEach(el=>el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
